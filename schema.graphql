@@ -1,0 +1,154 @@
+type Annonces implements Node {
+  id: ID!
+  _id: Int!
+  title: String!
+  content: String!
+  categories: Categories!
+}
+
+"""Connection for Annonces."""
+type AnnoncesConnection {
+  edges: [AnnoncesEdge]
+  pageInfo: AnnoncesPageInfo!
+  totalCount: Int!
+}
+
+"""Edge of Annonces."""
+type AnnoncesEdge {
+  node: Annonces
+  cursor: String!
+}
+
+"""Information about the current page."""
+type AnnoncesPageInfo {
+  endCursor: String
+  startCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+}
+
+type Categories implements Node {
+  id: ID!
+  _id: Int!
+  name: String!
+  slug: String!
+  annonces(
+    """Returns the first n elements from the list."""
+    first: Int
+
+    """Returns the last n elements from the list."""
+    last: Int
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+  ): AnnoncesConnection
+}
+
+type Mutation {
+  """Deletes a Annonces."""
+  deleteAnnonces(input: deleteAnnoncesInput!): deleteAnnoncesPayload
+
+  """Updates a Annonces."""
+  updateAnnonces(input: updateAnnoncesInput!): updateAnnoncesPayload
+
+  """Creates a Annonces."""
+  createAnnonces(input: createAnnoncesInput!): createAnnoncesPayload
+
+  """Deletes a Categories."""
+  deleteCategories(input: deleteCategoriesInput!): deleteCategoriesPayload
+
+  """Updates a Categories."""
+  updateCategories(input: updateCategoriesInput!): updateCategoriesPayload
+
+  """Creates a Categories."""
+  createCategories(input: createCategoriesInput!): createCategoriesPayload
+}
+
+"""A node, according to the Relay specification."""
+interface Node {
+  """The id of this node."""
+  id: ID!
+}
+
+type Query {
+  node(id: ID!): Node
+  annonces(id: ID!): Annonces
+  categories(id: ID!): Categories
+}
+
+input createAnnoncesInput {
+  title: String!
+  content: String!
+  categories: String!
+  clientMutationId: String
+}
+
+type createAnnoncesPayload {
+  annonces: Annonces
+  clientMutationId: String
+}
+
+input createCategoriesInput {
+  name: String!
+  slug: String!
+  annonces: [String]
+  clientMutationId: String
+}
+
+type createCategoriesPayload {
+  categories: Categories
+  clientMutationId: String
+}
+
+input deleteAnnoncesInput {
+  id: ID!
+  clientMutationId: String
+}
+
+type deleteAnnoncesPayload {
+  annonces: Annonces
+  clientMutationId: String
+}
+
+input deleteCategoriesInput {
+  id: ID!
+  clientMutationId: String
+}
+
+type deleteCategoriesPayload {
+  categories: Categories
+  clientMutationId: String
+}
+
+input updateAnnoncesInput {
+  id: ID!
+  title: String
+  content: String
+  categories: String
+  clientMutationId: String
+}
+
+type updateAnnoncesPayload {
+  annonces: Annonces
+  clientMutationId: String
+}
+
+input updateCategoriesInput {
+  id: ID!
+  name: String
+  slug: String
+  annonces: [String]
+  clientMutationId: String
+}
+
+type updateCategoriesPayload {
+  categories: Categories
+  clientMutationId: String
+}
