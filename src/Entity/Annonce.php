@@ -3,14 +3,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\AnnoncesRepository;
+use App\Repository\AnnonceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass=AnnoncesRepository::class)
+ * @ORM\Entity(repositoryClass=AnnonceRepository::class)
  */
-class Annonces
+class Annonce
 {
     /**
      * @ORM\Id
@@ -30,7 +30,7 @@ class Annonces
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="annonces")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="annonce")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categories;
@@ -82,18 +82,18 @@ class Annonces
     }
 
     /**
-     * @return Categories|null
+     * @return Category|null
      */
-    public function getCategories(): ?Categories
+    public function getCategories(): ?Category
     {
         return $this->categories;
     }
 
     /**
-     * @param Categories|null $categories
+     * @param Category|null $categories
      * @return $this
      */
-    public function setCategories(?Categories $categories): self
+    public function setCategories(?Category $categories): self
     {
         $this->categories = $categories;
 

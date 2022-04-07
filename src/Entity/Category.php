@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoriesRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,9 +10,9 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass=CategoriesRepository::class)
+ * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
-class Categories
+class Category
 {
     /**
      * @ORM\Id
@@ -33,7 +33,7 @@ class Categories
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Annonces::class, mappedBy="categories")
+     * @ORM\OneToMany(targetEntity=Annonce::class, mappedBy="categories")
      */
     private $annonces;
 
@@ -72,29 +72,29 @@ class Categories
     }
 
     /**
-     * @return Collection<int, Annonces>
+     * @return Collection<int, Annonce>
      */
     public function getAnnonces(): Collection
     {
         return $this->annonces;
     }
 
-    public function addAnnonces(Annonces $annonces): self
+    public function addAnnonces(Annonce $annonce): self
     {
-        if (!$this->annonces->contains($annonces)) {
-            $this->annonces[] = $annonces;
-            $annonces->setCategories($this);
+        if (!$this->annonces->contains($annonce)) {
+            $this->annonces[] = $annonce;
+            $annonce->setCategories($this);
         }
 
         return $this;
     }
 
-    public function removeAnnonces(Annonces $annonces): self
+    public function removeAnnonces(Annonce $annonce): self
     {
-        if ($this->annonces->removeElement($annonces)) {
+        if ($this->annonces->removeElement($annonce)) {
             // set the owning side to null (unless already changed)
-            if ($annonces->getCategories() === $this) {
-                $annonces->setCategories(null);
+            if ($annonce->getCategories() === $this) {
+                $annonce->setCategories(null);
             }
         }
 

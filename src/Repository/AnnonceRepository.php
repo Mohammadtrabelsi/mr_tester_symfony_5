@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Categories;
+use App\Entity\Annonce;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Categories|null find($id, $lockMode = null, $lockVersion = null)
- * @method Categories|null findOneBy(array $criteria, array $orderBy = null)
- * @method Categories[]    findAll()
- * @method Categories[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Annonce|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Annonce|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Annonce[]    findAll()
+ * @method Annonce[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CategoriesRepository extends ServiceEntityRepository
+class AnnonceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Categories::class);
+        parent::__construct($registry, Annonce::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Categories $entity, bool $flush = true): void
+    public function add(Annonce $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class CategoriesRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Categories $entity, bool $flush = true): void
+    public function remove(Annonce $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,15 +46,15 @@ class CategoriesRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Categories[] Returns an array of Categories objects
+    //  * @return Annonces[] Returns an array of Annonces objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -63,10 +63,10 @@ class CategoriesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Categories
+    public function findOneBySomeField($value): ?Annonces
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

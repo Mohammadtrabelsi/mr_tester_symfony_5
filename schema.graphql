@@ -1,33 +1,33 @@
-type Annonces implements Node {
+type Annonce implements Node {
   id: ID!
   _id: Int!
   title: String!
   content: String!
-  categories: Categories!
+  categories: Category!
 }
 
-"""Connection for Annonces."""
-type AnnoncesConnection {
-  edges: [AnnoncesEdge]
-  pageInfo: AnnoncesPageInfo!
+"""Connection for Annonce."""
+type AnnonceConnection {
+  edges: [AnnonceEdge]
+  pageInfo: AnnoncePageInfo!
   totalCount: Int!
 }
 
-"""Edge of Annonces."""
-type AnnoncesEdge {
-  node: Annonces
+"""Edge of Annonce."""
+type AnnonceEdge {
+  node: Annonce
   cursor: String!
 }
 
 """Information about the current page."""
-type AnnoncesPageInfo {
+type AnnoncePageInfo {
   endCursor: String
   startCursor: String
   hasNextPage: Boolean!
   hasPreviousPage: Boolean!
 }
 
-type Categories implements Node {
+type Category implements Node {
   id: ID!
   _id: Int!
   name: String!
@@ -48,27 +48,48 @@ type Categories implements Node {
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
-  ): AnnoncesConnection
+  ): AnnonceConnection
+}
+
+"""Connection for Category."""
+type CategoryConnection {
+  edges: [CategoryEdge]
+  pageInfo: CategoryPageInfo!
+  totalCount: Int!
+}
+
+"""Edge of Category."""
+type CategoryEdge {
+  node: Category
+  cursor: String!
+}
+
+"""Information about the current page."""
+type CategoryPageInfo {
+  endCursor: String
+  startCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
 }
 
 type Mutation {
-  """Deletes a Annonces."""
-  deleteAnnonces(input: deleteAnnoncesInput!): deleteAnnoncesPayload
+  """Deletes a Annonce."""
+  deleteAnnonce(input: deleteAnnonceInput!): deleteAnnoncePayload
 
-  """Updates a Annonces."""
-  updateAnnonces(input: updateAnnoncesInput!): updateAnnoncesPayload
+  """Updates a Annonce."""
+  updateAnnonce(input: updateAnnonceInput!): updateAnnoncePayload
 
-  """Creates a Annonces."""
-  createAnnonces(input: createAnnoncesInput!): createAnnoncesPayload
+  """Creates a Annonce."""
+  createAnnonce(input: createAnnonceInput!): createAnnoncePayload
 
-  """Deletes a Categories."""
-  deleteCategories(input: deleteCategoriesInput!): deleteCategoriesPayload
+  """Deletes a Category."""
+  deleteCategory(input: deleteCategoryInput!): deleteCategoryPayload
 
-  """Updates a Categories."""
-  updateCategories(input: updateCategoriesInput!): updateCategoriesPayload
+  """Updates a Category."""
+  updateCategory(input: updateCategoryInput!): updateCategoryPayload
 
-  """Creates a Categories."""
-  createCategories(input: createCategoriesInput!): createCategoriesPayload
+  """Creates a Category."""
+  createCategory(input: createCategoryInput!): createCategoryPayload
 }
 
 """A node, according to the Relay specification."""
@@ -79,55 +100,89 @@ interface Node {
 
 type Query {
   node(id: ID!): Node
-  annonces(id: ID!): Annonces
-  categories(id: ID!): Categories
+  annonce(id: ID!): Annonce
+  annonces(
+    """Returns the first n elements from the list."""
+    first: Int
+
+    """Returns the last n elements from the list."""
+    last: Int
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+  ): AnnonceConnection
+  category(id: ID!): Category
+  categories(
+    """Returns the first n elements from the list."""
+    first: Int
+
+    """Returns the last n elements from the list."""
+    last: Int
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+  ): CategoryConnection
 }
 
-input createAnnoncesInput {
+input createAnnonceInput {
   title: String!
   content: String!
   categories: String!
   clientMutationId: String
 }
 
-type createAnnoncesPayload {
-  annonces: Annonces
+type createAnnoncePayload {
+  annonce: Annonce
   clientMutationId: String
 }
 
-input createCategoriesInput {
+input createCategoryInput {
   name: String!
   slug: String!
   annonces: [String]
   clientMutationId: String
 }
 
-type createCategoriesPayload {
-  categories: Categories
+type createCategoryPayload {
+  category: Category
   clientMutationId: String
 }
 
-input deleteAnnoncesInput {
+input deleteAnnonceInput {
   id: ID!
   clientMutationId: String
 }
 
-type deleteAnnoncesPayload {
-  annonces: Annonces
+type deleteAnnoncePayload {
+  annonce: Annonce
   clientMutationId: String
 }
 
-input deleteCategoriesInput {
+input deleteCategoryInput {
   id: ID!
   clientMutationId: String
 }
 
-type deleteCategoriesPayload {
-  categories: Categories
+type deleteCategoryPayload {
+  category: Category
   clientMutationId: String
 }
 
-input updateAnnoncesInput {
+input updateAnnonceInput {
   id: ID!
   title: String
   content: String
@@ -135,12 +190,12 @@ input updateAnnoncesInput {
   clientMutationId: String
 }
 
-type updateAnnoncesPayload {
-  annonces: Annonces
+type updateAnnoncePayload {
+  annonce: Annonce
   clientMutationId: String
 }
 
-input updateCategoriesInput {
+input updateCategoryInput {
   id: ID!
   name: String
   slug: String
@@ -148,7 +203,7 @@ input updateCategoriesInput {
   clientMutationId: String
 }
 
-type updateCategoriesPayload {
-  categories: Categories
+type updateCategoryPayload {
+  category: Category
   clientMutationId: String
 }
