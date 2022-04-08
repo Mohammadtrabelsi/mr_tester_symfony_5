@@ -23,6 +23,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *          "retrievedQuery"={
  *              "item_query"=CategoryResolver::class,
  *              "args"={
+ *                  "id"={"type"="ID!"},
  *                  "shearch"={"type"="String!"},
  *              }
  *          },

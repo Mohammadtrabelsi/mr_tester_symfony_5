@@ -17,7 +17,11 @@ final  class CategoryCollectionResolver implements  QueryCollectionResolverInter
 
         foreach ($collection as $category) {
             // Do something with the book.
+            dump($category);die;
+            return $category->retrivedDate = new \DateTime('now');
+
         }
 
-        return $collection;    }
+        return $collection;
+    }
 }

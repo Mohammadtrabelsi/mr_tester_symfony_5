@@ -12,6 +12,7 @@ final  class CategoryResolver implements QueryItemResolverInterface
      */
     public function __invoke($item, array $context)
     {
+        dd($context['args']);
         return $item;
     }
 }
