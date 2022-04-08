@@ -51,27 +51,6 @@ type Category implements Node {
   ): AnnonceConnection
 }
 
-"""Connection for Category."""
-type CategoryConnection {
-  edges: [CategoryEdge]
-  pageInfo: CategoryPageInfo!
-  totalCount: Int!
-}
-
-"""Edge of Category."""
-type CategoryEdge {
-  node: Category
-  cursor: String!
-}
-
-"""Information about the current page."""
-type CategoryPageInfo {
-  endCursor: String
-  startCursor: String
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-}
-
 type Mutation {
   """Deletes a Annonce."""
   deleteAnnonce(input: deleteAnnonceInput!): deleteAnnoncePayload
@@ -81,6 +60,9 @@ type Mutation {
 
   """Creates a Annonce."""
   createAnnonce(input: createAnnonceInput!): createAnnoncePayload
+
+  """CollectionQuerys a Category."""
+  collectionQueryCategory(input: collectionQueryCategoryInput!): collectionQueryCategoryPayload
 
   """Deletes a Category."""
   deleteCategory(input: deleteCategoryInput!): deleteCategoryPayload
@@ -118,24 +100,19 @@ type Query {
     """
     after: String
   ): AnnonceConnection
+  retrievedQueryCategory(shearch: String!): Category
   category(id: ID!): Category
-  categories(
-    """Returns the first n elements from the list."""
-    first: Int
+  categories: [Category]
+}
 
-    """Returns the last n elements from the list."""
-    last: Int
+input collectionQueryCategoryInput {
+  shearch: String!
+  clientMutationId: String
+}
 
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-  ): CategoryConnection
+type collectionQueryCategoryPayload {
+  category: Category
+  clientMutationId: String
 }
 
 input createAnnonceInput {

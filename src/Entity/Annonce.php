@@ -30,7 +30,7 @@ class Annonce
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="annonce")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categories;

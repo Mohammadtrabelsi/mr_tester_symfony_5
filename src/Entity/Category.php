@@ -3,14 +3,38 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use App\Resolver\CategoryResolver;
+use App\Resolver\CategoryCollectionResolver;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ *
+ * @ApiResource(
+ *     graphql={
+ *          "item_query",
+ *          "collection_query",
+ *          "delete",
+ *          "update",
+ *          "create",
+ *          "retrievedQuery"={
+ *              "item_query"=CategoryResolver::class,
+ *              "args"={
+ *                  "shearch"={"type"="String!"},
+ *              }
+ *          },
+ *          "collectionQuery"={
+ *              "collectionQuery"=CategoryCollectionResolver::class,
+ *              "args"={
+ *                  "shearch"={"type"="String!"},
+ *              }
+ *          }
+ *     }
+ * )
+ *
  */
 class Category
 {
