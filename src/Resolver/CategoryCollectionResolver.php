@@ -14,10 +14,8 @@ final  class CategoryCollectionResolver implements QueryCollectionResolverInterf
     public function __invoke(iterable $collection, array $context): iterable
     {
         // Query arguments are in $context['args'].
-        dd($context['args']);
         foreach ($collection as $category) {
-            $category->setName("name");
-            $category->setSlug("slug");
+            $category->setName("c name");
         }
         return $collection;
     }

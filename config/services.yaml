@@ -44,6 +44,6 @@ services:
         tags:
             - { name: api_platform.graphql.query_resolver }
 
-#    App\Resolver\CategoryResolver:
-#        tags:
-#            - { name: api_platform.graphql.query_resolver }
+    App\Resolver\CategoryResolver:
+        tags:
+            - { name: api_platform.graphql.query_resolver }
