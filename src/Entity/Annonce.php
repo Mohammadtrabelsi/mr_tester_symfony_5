@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Resolver\AnnonceResolver;
+use App\Resolver\AnnonceMutationResolver;
+use App\Resolver\AnnonceCollectionResolver;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\AnnonceRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,13 +20,27 @@ use Doctrine\ORM\Mapping as ORM;
  *          "delete",
  *          "update",
  *          "create",
- *          "getAnnCusQuery"={
+ *          "getanncusquery"={
  *              "item_query"=AnnonceResolver::class,
  *              "args"={
- *                  "id"={"type"="ID!"}
- *            }
- *       }
- *   }
+ *                  "id"={"type"="ID!"},
+ *                  "shearch"={"type"="String!"},
+ *              }
+ *          },
+ *          "getanncolquery"={
+ *              "collection_query"=AnnonceCollectionResolver::class,
+ *              "args"={
+ *                  "shearch"={"type"="String!"},
+ *              }
+ *          },
+ *          "updateannmutation"={
+ *              "mutation"=AnnonceMutationResolver::class,
+ *              "args"={
+ *                  "locale"={"type"="String"},
+ *              }
+ *          },
+ *         }
+ * )
  * )
  *
  */

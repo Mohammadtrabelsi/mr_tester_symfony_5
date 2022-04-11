@@ -5,7 +5,7 @@ namespace App\Resolver;
 use ApiPlatform\Core\GraphQl\Resolver\QueryCollectionResolverInterface;
 
 
-final  class CategoryCollectionResolver implements QueryCollectionResolverInterface
+final  class AnnonceCollectionResolver implements QueryCollectionResolverInterface
 {
 
     /**

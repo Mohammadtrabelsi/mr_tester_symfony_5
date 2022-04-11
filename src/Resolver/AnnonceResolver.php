@@ -2,9 +2,9 @@
 
 namespace App\Resolver;
 
-use ApiPlatform\Core\GraphQl\Resolver\MutationResolverInterface;
+use ApiPlatform\Core\GraphQl\Resolver\QueryItemResolverInterface;
 
-final class CategoryMutationResolver implements MutationResolverInterface
+final class AnnonceResolver implements QueryItemResolverInterface
 {
 
     /**

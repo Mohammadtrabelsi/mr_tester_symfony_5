@@ -28,6 +28,14 @@ services:
         tags:
             - { name: api_platform.graphql.query_resolver }
 
+    App\Resolver\AnnonceCollectionResolver:
+        tags:
+            - { name: api_platform.graphql.query_resolver }
+
+    App\Resolver\AnnonceMutationResolver:
+        tags:
+            - { name: api_platform.graphql.query_resolver }
+
     App\Resolver\CategoryCollectionResolver:
         tags:
             - { name: api_platform.graphql.query_resolver }
@@ -36,6 +44,6 @@ services:
         tags:
             - { name: api_platform.graphql.query_resolver }
 
-    App\Resolver\CategoryResolver:
-        tags:
-            - { name: api_platform.graphql.query_resolver }
+#    App\Resolver\CategoryResolver:
+#        tags:
+#            - { name: api_platform.graphql.query_resolver }

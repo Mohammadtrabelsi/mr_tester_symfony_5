@@ -4,7 +4,7 @@ namespace App\Resolver;
 
 use ApiPlatform\Core\GraphQl\Resolver\MutationResolverInterface;
 
-final class CategoryMutationResolver implements MutationResolverInterface
+final class AnnonceMutationResolver implements MutationResolverInterface
 {
 
     /**

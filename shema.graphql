@@ -82,8 +82,8 @@ type Mutation {
   """Creates a Annonce."""
   createAnnonce(input: createAnnonceInput!): createAnnoncePayload
 
-  """UpdateCatMutations a Category."""
-  updateCatMutationCategory(input: updateCatMutationCategoryInput!): updateCatMutationCategoryPayload
+  """Updatecatmutations a Category."""
+  updatecatmutationCategory(input: updatecatmutationCategoryInput!): updatecatmutationCategoryPayload
 
   """Deletes a Category."""
   deleteCategory(input: deleteCategoryInput!): deleteCategoryPayload
@@ -121,8 +121,8 @@ type Query {
     """
     after: String
   ): AnnonceConnection
-  getCatCusQueryCategory(id: ID!, shearch: String!): Category
-  getCatColQueryCategories(shearch: String!): CategoryConnection
+  getcatcusqueryCategory(id: ID!, shearch: String!): Category
+  getcatcolqueryCategories(shearch: String!): CategoryConnection
   category(id: ID!): Category
   categories(
     """Returns the first n elements from the list."""
@@ -200,16 +200,6 @@ type updateAnnoncePayload {
   clientMutationId: String
 }
 
-input updateCatMutationCategoryInput {
-  locale: String
-  clientMutationId: String
-}
-
-type updateCatMutationCategoryPayload {
-  category: Category
-  clientMutationId: String
-}
-
 input updateCategoryInput {
   id: ID!
   name: String
@@ -219,6 +209,16 @@ input updateCategoryInput {
 }
 
 type updateCategoryPayload {
+  category: Category
+  clientMutationId: String
+}
+
+input updatecatmutationCategoryInput {
+  locale: String
+  clientMutationId: String
+}
+
+type updatecatmutationCategoryPayload {
   category: Category
   clientMutationId: String
 }
