@@ -34,7 +34,7 @@ services:
 
     App\Resolver\AnnonceMutationResolver:
         tags:
-            - { name: api_platform.graphql.query_resolver }
+            - { name: api_platform.graphql.mutation_resolver }
 
     App\Resolver\CategoryCollectionResolver:
         tags:
@@ -42,7 +42,7 @@ services:
 
     App\Resolver\CategoryMutationResolver:
         tags:
-            - { name: api_platform.graphql.query_resolver }
+            - { name: api_platform.graphql.mutation_resolver }
 
     App\Resolver\CategoryResolver:
         tags:
