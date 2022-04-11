@@ -5,7 +5,7 @@ namespace App\Resolver;
 use ApiPlatform\Core\GraphQl\Resolver\QueryCollectionResolverInterface;
 
 
-final  class CategoryCollectionResolver implements  QueryCollectionResolverInterface
+final  class CategoryCollectionResolver implements QueryCollectionResolverInterface
 {
 
     /**
@@ -14,14 +14,11 @@ final  class CategoryCollectionResolver implements  QueryCollectionResolverInter
     public function __invoke(iterable $collection, array $context): iterable
     {
         // Query arguments are in $context['args'].
-
+        dd($context['args']);
         foreach ($collection as $category) {
-            // Do something with the book.
-            dump($category);die;
-            return $category->retrivedDate = new \DateTime('now');
-
+            $category->setName("name");
+            $category->setSlug("slug");
         }
-
         return $collection;
     }
 }

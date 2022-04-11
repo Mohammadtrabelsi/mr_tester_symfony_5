@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CategoryRepository;
 use App\Resolver\CategoryResolver;
+use App\Resolver\CategoryMutationResolver;
 use App\Resolver\CategoryCollectionResolver;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -20,20 +21,26 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *          "delete",
  *          "update",
  *          "create",
- *          "retrievedQuery"={
+ *          "getCatCusQuery"={
  *              "item_query"=CategoryResolver::class,
  *              "args"={
  *                  "id"={"type"="ID!"},
  *                  "shearch"={"type"="String!"},
  *              }
  *          },
- *          "collectionQuery"={
- *              "collectionQuery"=CategoryCollectionResolver::class,
+ *          "getCatColQuery"={
+ *              "collection_query"=CategoryCollectionResolver::class,
  *              "args"={
  *                  "shearch"={"type"="String!"},
  *              }
- *          }
- *     }
+ *          },
+ *          "updateCatMutation"={
+ *              "mutation"=CategoryMutationResolver::class,
+ *              "args"={
+ *                  "locale"={"type"="String"},
+ *              }
+ *          },
+ *         }
  * )
  *
  */

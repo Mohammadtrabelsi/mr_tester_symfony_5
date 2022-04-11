@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Resolver\AnnonceResolver;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\AnnonceRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,6 +10,23 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
+ *
+ * @ApiResource(
+ *     graphql={
+ *          "item_query",
+ *          "collection_query",
+ *          "delete",
+ *          "update",
+ *          "create",
+ *          "getAnnCusQuery"={
+ *              "item_query"=AnnonceResolver::class,
+ *              "args"={
+ *                  "id"={"type"="ID!"}
+ *            }
+ *       }
+ *   }
+ * )
+ *
  */
 class Annonce
 {

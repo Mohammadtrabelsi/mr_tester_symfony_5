@@ -21,8 +21,21 @@ services:
             - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # please note that last definitions always *replace* previous
+
     # Resolvers
+    App\Resolver\AnnonceResolver:
+        tags:
+            - { name: api_platform.graphql.query_resolver }
+
     App\Resolver\CategoryCollectionResolver:
+        tags:
+            - { name: api_platform.graphql.query_resolver }
+
+    App\Resolver\CategoryMutationResolver:
+        tags:
+            - { name: api_platform.graphql.query_resolver }
+
+    App\Resolver\CategoryResolver:
         tags:
             - { name: api_platform.graphql.query_resolver }
