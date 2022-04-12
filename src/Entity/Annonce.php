@@ -8,6 +8,7 @@ use App\Resolver\AnnonceCollectionResolver;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\AnnonceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
@@ -56,11 +57,15 @@ class Annonce
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\NotBlank()
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotNull()
+     * @Assert\NotBlank()
      */
     private $content;
 
