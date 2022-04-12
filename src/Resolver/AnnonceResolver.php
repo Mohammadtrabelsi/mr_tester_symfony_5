@@ -5,7 +5,7 @@ namespace App\Resolver;
 use ApiPlatform\Core\GraphQl\Resolver\QueryItemResolverInterface;
 
 /**
- *
+ * AnnonceResolver
  */
 final class AnnonceResolver implements QueryItemResolverInterface
 {

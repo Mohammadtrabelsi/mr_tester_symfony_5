@@ -6,7 +6,7 @@ use ApiPlatform\Core\GraphQl\Resolver\QueryCollectionResolverInterface;
 
 
 /**
- *
+ * AnnonceCollectionResolver
  */
 final  class AnnonceCollectionResolver implements QueryCollectionResolverInterface
 {
@@ -16,7 +16,6 @@ final  class AnnonceCollectionResolver implements QueryCollectionResolverInterfa
      */
     public function __invoke(iterable $collection, array $context): iterable
     {
-        // Query arguments are in $context['args'].
         foreach ($collection as $annonce) {
             $annonce->setTitle("Title");
             $annonce->setContent("Content");

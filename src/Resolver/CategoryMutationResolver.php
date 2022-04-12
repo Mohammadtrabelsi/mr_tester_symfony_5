@@ -6,7 +6,7 @@ use ApiPlatform\Core\GraphQl\Resolver\MutationResolverInterface;
 use App\Service\SluggerService;
 
 /**
- *
+ * CategoryMutationResolver
  */
 final class CategoryMutationResolver implements MutationResolverInterface
 {

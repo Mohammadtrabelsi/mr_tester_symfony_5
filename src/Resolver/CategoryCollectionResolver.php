@@ -6,7 +6,7 @@ use ApiPlatform\Core\GraphQl\Resolver\QueryCollectionResolverInterface;
 
 
 /**
- *
+ * CategoryCollectionResolver
  */
 final  class CategoryCollectionResolver implements QueryCollectionResolverInterface
 {
@@ -16,7 +16,6 @@ final  class CategoryCollectionResolver implements QueryCollectionResolverInterf
      */
     public function __invoke(iterable $collection, array $context): iterable
     {
-        // Query arguments are in $context['args'].
         foreach ($collection as $category) {
             $category->setName("c name");
         }
