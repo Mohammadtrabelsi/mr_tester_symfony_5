@@ -19,23 +19,25 @@ use Doctrine\ORM\Mapping as ORM;
  *          "delete",
  *          "update",
  *          "create",
- *          "getanncusquery"={
+ *          "getCustomQuery"={
  *              "item_query"=AnnonceResolver::class,
  *              "args"={
  *                  "id"={"type"="ID!"},
  *                  "shearch"={"type"="String!"},
  *              }
  *          },
- *          "getanncolquery"={
+ *          "getCollectionQuery"={
  *              "collection_query"=AnnonceCollectionResolver::class,
  *              "args"={
  *                  "shearch"={"type"="String!"},
  *              }
  *          },
- *          "updateannmutation"={
+ *          "customCreateMutation"={
  *              "mutation"=AnnonceMutationResolver::class,
  *              "args"={
- *                  "locale"={"type"="String"},
+ *                  "title"={"type"="String", "description"="Annonce title text"},
+ *                  "content"={"type"="String", "description"="Annonce content text"},
+ *                  "categoryId"={"type"="String", "description"="Annonce category Id"}
  *              }
  *          },
  *         }

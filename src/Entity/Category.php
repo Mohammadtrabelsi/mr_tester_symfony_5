@@ -21,23 +21,23 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *          "delete",
  *          "update",
  *          "create",
- *          "getcatcusquery"={
+ *          "getCustomQuery"={
  *              "item_query"=CategoryResolver::class,
  *              "args"={
  *                  "id"={"type"="ID!"},
  *                  "shearch"={"type"="String!"},
  *              }
  *          },
- *          "getcatcolquery"={
+ *          "getCollectionQuery"={
  *              "collection_query"=CategoryCollectionResolver::class,
  *              "args"={
  *                  "shearch"={"type"="String!"},
  *              }
  *          },
- *          "updatecatmutation"={
+ *          "customCreateMutation"={
  *              "mutation"=CategoryMutationResolver::class,
  *              "args"={
- *                  "locale"={"type"="String"},
+ *                  "name"={"type"="String", "description"="Category description text"}
  *              }
  *          },
  *         }
