@@ -12,9 +12,8 @@ final class AnnonceResolver implements QueryItemResolverInterface
      */
     public function __invoke($item, array $context)
     {
-        // TODO: Implement __invoke() method.
-        $item->setName("name");
-        $item->setSlug("slug");
+        $item->setTitle("Title");
+        $item->setContent("Content");
         return $item;
     }
 }

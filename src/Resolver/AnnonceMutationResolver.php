@@ -3,6 +3,7 @@
 namespace App\Resolver;
 
 use ApiPlatform\Core\GraphQl\Resolver\MutationResolverInterface;
+use App\Entity\Category;
 
 final class AnnonceMutationResolver implements MutationResolverInterface
 {
@@ -12,9 +13,9 @@ final class AnnonceMutationResolver implements MutationResolverInterface
      */
     public function __invoke($item, array $context)
     {
-        // TODO: Implement __invoke() method.
-        $item->setName("name");
-        $item->setSlug("slug");
+        $item->setTitle("Title");
+        $item->setContent("Content");
+        $item->setContent("Content");
         return $item;
     }
 }

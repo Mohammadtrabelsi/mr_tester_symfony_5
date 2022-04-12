@@ -14,10 +14,9 @@ final  class AnnonceCollectionResolver implements QueryCollectionResolverInterfa
     public function __invoke(iterable $collection, array $context): iterable
     {
         // Query arguments are in $context['args'].
-        dd($context['args']);
-        foreach ($collection as $category) {
-            $category->setName("name");
-            $category->setSlug("slug");
+        foreach ($collection as $annonce) {
+            $annonce->setTitle("Title");
+            $annonce->setContent("Content");
         }
         return $collection;
     }

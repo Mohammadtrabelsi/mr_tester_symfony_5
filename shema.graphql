@@ -73,6 +73,9 @@ type CategoryPageInfo {
 }
 
 type Mutation {
+  """Updateannmutations a Annonce."""
+  updateannmutationAnnonce(input: updateannmutationAnnonceInput!): updateannmutationAnnoncePayload
+
   """Deletes a Annonce."""
   deleteAnnonce(input: deleteAnnonceInput!): deleteAnnoncePayload
 
@@ -103,6 +106,8 @@ interface Node {
 
 type Query {
   node(id: ID!): Node
+  getanncusqueryAnnonce(id: ID!, shearch: String!): Annonce
+  getanncolqueryAnnonces(shearch: String!): AnnonceConnection
   annonce(id: ID!): Annonce
   annonces(
     """Returns the first n elements from the list."""
@@ -210,6 +215,16 @@ input updateCategoryInput {
 
 type updateCategoryPayload {
   category: Category
+  clientMutationId: String
+}
+
+input updateannmutationAnnonceInput {
+  locale: String
+  clientMutationId: String
+}
+
+type updateannmutationAnnoncePayload {
+  annonce: Annonce
   clientMutationId: String
 }
 

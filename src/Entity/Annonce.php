@@ -10,7 +10,6 @@ use App\Repository\AnnonceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
  *
  * @ApiResource(
